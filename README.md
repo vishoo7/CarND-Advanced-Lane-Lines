@@ -1,19 +1,19 @@
 ## Advanced Lane Finding
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-## Writeup
-
-In this project, our task is to write a software pipeline to identify the lane boundaries in a video. This is similar to [project 1](https://github.com/vishoo7/CarND-LaneLines-P1) but now we are building something more robust. In short we want to:
-* take into account the radial and tangential distortions that occur to some extent with all cameras with lenses.
-* be a little smarter than Canny edge detection by using a different Sobel operation, which is at the heart of Canny edge detection
-* better handle shadows and color alterations by looking at different color spaces
-* user perspective transform to get a sense of the curvature of the lanes
-
----
+[//]: # (Image References)
+[image1]: ./examples/undistorted_chess.png "Undistorted Chessboard"
+[image2]: ./examples/undistorted_lane.png "Undistorted Lane"
 
 **Advanced Lane Finding Project**
 
-The goals / steps of this project are the following:
+In this project, our task is to write a software pipeline to identify the lane boundaries in a video. This is similar to [project 1](https://github.com/vishoo7/CarND-LaneLines-P1) but now we are building something more robust. In short we want to:
+* take into account the radial and tangential distortions that occur to some extent with all cameras with lenses.
+* be a little smarter than Canny edge detection by using a different Sobel operation, which is at the heart of Canny edge detection, gradient magnitude thresholding, and gradient direction thresholding.
+* better handle shadows and color alterations by looking at different color spaces
+* user perspective transform to get a sense of the curvature of the lanes
+
+The goals / steps of this project (taken from the template) are the following:
 
 * Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
 * Apply a distortion correction to raw images.
@@ -24,10 +24,6 @@ The goals / steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
-[//]: # (Image References)
-
-[video1]: ./project_video.mp4 "Video"
-
 ## [Rubric Points](https://review.udacity.com/#!/rubrics/571/view)
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
@@ -36,17 +32,23 @@ The goals / steps of this project are the following:
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
 
+You are looking at it ;)
+
 ---
 
 ### Camera Calibration
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
 
+![alt text][image1]
+
 ---
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
+
+![alt text][image2]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
